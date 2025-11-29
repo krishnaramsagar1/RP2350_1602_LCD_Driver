@@ -1,0 +1,18 @@
+{
+  "cmake.cmakePath": "cmake",
+  "cmake.configureOnOpen": false,
+  "C_Cpp.intelliSenseEngine": "default",
+  "files.associations": {
+    "*.s": "arm",
+    "*.asm": "arm"
+  },
+  "terminal.integrated.env.windows": {
+    "PICO_SDK_PATH": "${env:PICO_SDK_PATH}",
+    "PICO_TOOLCHAIN_PATH": "${env:PICO_TOOLCHAIN_PATH}",
+    "ARM_TOOLCHAIN_PATH": "${env:ARM_TOOLCHAIN_PATH}",
+    "Path": "${env:ARM_TOOLCHAIN_PATH}/bin;${env:Path}"
+  },
+  "cortex-debug.openocdPath": "openocd",
+  "cortex-debug.gdbPath": "arm-none-eabi-gdb",
+  "cortex-debug.armToolchainPath": "${env:ARM_TOOLCHAIN_PATH}"
+}

@@ -1,0 +1,108 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile Project",
+      "type": "shell",
+      "command": "${workspaceFolder}/build.bat",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Clean Project",
+      "type": "shell",
+      "command": "${workspaceFolder}/clean.bat",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Run Project",
+      "type": "shell",
+      "command": "picotool",
+      "args": [
+        "load",
+        "${workspaceFolder}/uart.uf2",
+        "-f"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Flash via OpenOCD",
+      "type": "shell",
+      "command": "openocd",
+      "args": [
+        "-f",
+        "interface/cmsis-dap.cfg",
+        "-f",
+        "target/rp2350.cfg",
+        "-c",
+        "adapter speed 5000",
+        "-c",
+        "program ${workspaceFolder}/uart.elf verify reset exit"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "label": "Rescue Reset",
+      "type": "shell",
+      "command": "openocd",
+      "args": [
+        "-f",
+        "interface/cmsis-dap.cfg",
+        "-f",
+        "target/rp2350.cfg",
+        "-c",
+        "adapter speed 5000",
+        "-c",
+        "init",
+        "-c",
+        "reset init",
+        "-c",
+        "exit"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ]
+}
